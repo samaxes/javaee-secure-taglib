@@ -19,9 +19,8 @@
     </tstamp>
 
     <path id="base.path">
-        <fileset dir="${lib.dir}">
-            <include name="**/*.jar" />
-        </fileset>
+        <pathelement location="${lib.dir}/javax.servlet.jar" />
+        <pathelement location="${lib.dir}/javax.servlet.jsp.jar" />
     </path>
 
     <!-- =================================================================== -->
