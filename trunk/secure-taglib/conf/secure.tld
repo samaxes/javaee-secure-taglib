@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" 
+	"http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+	<tlibversion>1.1</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>role</shortname>
+	<uri>http://samaxes.com/taglibs/secure</uri>
+	<info>Secure JSP Taglibs</info>
+
+	<tag>
+		<name>one</name>
+		<tagclass>com.samaxes.taglibs.role.SecureOne</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>Need to have at least one of the specified roles.</info>
+		<attribute>
+			<name>role</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>all</name>
+		<tagclass>com.samaxes.taglibs.role.SecureAll</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>Need to have all the specified roles.</info>
+		<attribute>
+			<name>role</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>none</name>
+		<tagclass>com.samaxes.taglibs.role.SecureNone</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<info>Need to have none of the specified roles.</info>
+		<attribute>
+			<name>role</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>
