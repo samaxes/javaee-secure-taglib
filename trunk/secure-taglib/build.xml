@@ -11,7 +11,7 @@
     <property name="build.deploy.dir" value="${build.dir}/deploy" />
     <property name="build.classes.dir" value="${build.dir}/classes" />
 
-    <property name="taglib.jar" value="secure-taglib.jar" />
+    <property name="taglib.jar" value="secure-taglib-${version}.jar" />
     <property name="taglib.tld" value="secure.tld" />
 
     <tstamp>
