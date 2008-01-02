@@ -1,47 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" 
-	"http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+        http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+    <description>This Taglib aims to solve some security issues on the J2EE presentation layer.</description>
+    <display-name>Secure JSP Taglibs</display-name>
+    <tlib-version>1.0</tlib-version>
+    <short-name>secure</short-name>
+    <uri>http://samaxes.com/taglibs/secure</uri>
 
-<taglib>
-	<tlibversion>1.1</tlibversion>
-	<jspversion>1.1</jspversion>
-	<shortname>role</shortname>
-	<uri>http://samaxes.com/taglibs/secure</uri>
-	<info>Secure JSP Taglibs</info>
+    <tag>
+        <description><![CDATA[
+            <p>Need to have at least one of the specified roles.</p>
+        ]]></description>
+        <name>one</name>
+        <tag-class>com.samaxes.secure.tag.SecureOne</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <description>
+                The roles that are allowed to view this resource. These roles should be a comma separated list.
+            </description>
+            <name>roles</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
-	<tag>
-		<name>one</name>
-		<tagclass>com.samaxes.taglibs.role.SecureOne</tagclass>
-		<bodycontent>JSP</bodycontent>
-		<info>Need to have at least one of the specified roles.</info>
-		<attribute>
-			<name>role</name>
-			<required>true</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-	</tag>
+    <tag>
+        <description><![CDATA[
+            <p>Need to have all the specified roles.</p>
+        ]]></description>
+        <name>all</name>
+        <tag-class>com.samaxes.secure.tag.SecureAll</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <description>
+                The roles that are allowed to view this resource. These roles should be a comma separated list.
+            </description>
+            <name>roles</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
-	<tag>
-		<name>all</name>
-		<tagclass>com.samaxes.taglibs.role.SecureAll</tagclass>
-		<bodycontent>JSP</bodycontent>
-		<info>Need to have all the specified roles.</info>
-		<attribute>
-			<name>role</name>
-			<required>true</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-	</tag>
-
-	<tag>
-		<name>none</name>
-		<tagclass>com.samaxes.taglibs.role.SecureNone</tagclass>
-		<bodycontent>JSP</bodycontent>
-		<info>Need to have none of the specified roles.</info>
-		<attribute>
-			<name>role</name>
-			<required>true</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-	</tag>
+    <tag>
+        <description><![CDATA[
+            <p>Need to have none of the specified roles.</p>
+        ]]></description>
+        <name>none</name>
+        <tag-class>com.samaxes.secure.tag.SecureNone</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <description>
+                The roles that are not allowed to view this resource. These roles should be a comma separated list.
+            </description>
+            <name>roles</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 </taglib>
