@@ -1,0 +1,33 @@
+#summary secure-taglib usage
+#labels Featured,Phase-Implementation
+
+= Taglib reference =
+
+First of all you have to reference the taglib in your JSP. Here's an example:
+{{{
+<%@ taglib uri="http://samaxes.com/taglibs/secure" prefix="secure" %>
+}}}
+
+
+= Secure content =
+
+Next you can evaluate the nested body content of the tag to check if the user has the roles which grant him access to view its content.
+
+Some examples:
+{{{
+<secure:one roles="role1toevaluate, role2toevaluate">
+    Show this content if the user has one of the specified roles.
+</secure:one>
+}}}
+
+{{{
+<secure:all roles="role1toevaluate, role2toevaluate">
+    Show this content if the user has all the specified roles.
+</secure:all>
+}}}
+
+{{{
+<secure:none roles="role1toevaluate, role2toevaluate">
+    Show this content if the user has none of the specified roles.
+</secure:none>
+}}}
