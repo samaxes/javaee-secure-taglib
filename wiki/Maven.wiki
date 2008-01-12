@@ -1,0 +1,12 @@
+#summary Maven dependency
+#labels Featured,Phase-Deploy
+
+= Maven IDs for Secure JSP Taglibs =
+
+{{{
+<dependency>
+    <groupId>com.samaxes.securetag</groupId>
+    <artifactId>securetag</artifactId>
+    <version>1.0</version>
+</dependency>
+}}}
