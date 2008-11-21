@@ -1,8 +1,6 @@
 #summary Maven dependency
 #labels Featured,Phase-Deploy
 
-= Maven IDs for Secure JSP Taglibs =
-
 {{{
 <dependency>
     <groupId>com.samaxes.securetag</groupId>
