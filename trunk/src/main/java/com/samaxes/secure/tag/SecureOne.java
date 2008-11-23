@@ -31,12 +31,17 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
  */
 public class SecureOne extends BodyTagSupport {
 
+    /**
+     * The delimiter character for roles.
+     */
     public static final String ROLE_DELIMITER = ",";
 
     /**
      * The name of the security role to be checked for.
      */
     protected String roles;
+
+    private static final long serialVersionUID = 8058405142604915060L;
 
     public String getRoles() {
         return roles;

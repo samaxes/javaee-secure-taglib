@@ -27,6 +27,8 @@ import javax.servlet.jsp.JspException;
  */
 public class SecureNone extends SecureOne {
 
+    private static final long serialVersionUID = 6889348390902605306L;
+
     /**
      * Need to have none of the specified roles.
      * 
