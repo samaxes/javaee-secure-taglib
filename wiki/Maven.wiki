@@ -1,5 +1,7 @@
-#summary Maven dependency
+#summary Maven configuration
 #labels Featured,Phase-Deploy
+
+*Dependency*
 
 {{{
 <dependency>
@@ -7,4 +9,24 @@
     <artifactId>securetag</artifactId>
     <version>1.0</version>
 </dependency>
+}}}
+
+*Repository*
+
+If you want to use the latest version of Secure JSP Taglibs, you need to add the following to your `pom.xml`: 
+
+{{{
+<project>
+    ...
+    <repositories>
+        ...
+        <repository>
+            <id>googlecode-releases</id>
+            <name>Google Code Maven repository of releases</name>
+            <url>http://maven-samaxes-repo.googlecode.com/svn/releases</url>
+        </repository>
+        ...
+    </repositories>
+    ...
+</project>
 }}}
