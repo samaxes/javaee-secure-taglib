@@ -7,10 +7,10 @@
     <groupId>com.samaxes.securetag</groupId>
     <artifactId>securetag</artifactId>
     <packaging>jar</packaging>
-    <name>Secure Taglib</name>
+    <name>Secure JSP Taglibs</name>
     <version>1.0</version>
     <url>http://code.google.com/p/secure-taglib/</url>
-    <description>Taglib that aims to solve some security issues on the J2EE presentation layer.</description>
+    <description>Secure JSP Taglibs aims to solve some security issues on the J2EE presentation layer.</description>
 
     <licenses>
         <license>
@@ -26,6 +26,13 @@
     </scm>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>org.jvnet.wagon-svn</groupId>
+                <artifactId>wagon-svn</artifactId>
+                <version>1.9</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -54,6 +61,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>googlecode-releases</id>
+            <name>Google Code Maven repository of releases</name>
+            <url>svn:https://maven-samaxes-repo.googlecode.com/svn/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>googlecode-snapshots</id>
+            <name>Google Code Maven repository of snapshots</name>
+            <url>svn:https://maven-samaxes-repo.googlecode.com/svn/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
