@@ -13,7 +13,7 @@
 
 *Repository*
 
-If you want to use the latest version of Secure JSP Taglibs, you need to add the following to your `pom.xml`: 
+Be up to date, add the following to your `pom.xml` for the most recent version:
 
 {{{
 <project>
