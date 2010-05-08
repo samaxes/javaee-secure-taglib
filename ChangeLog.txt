@@ -1,0 +1,7 @@
+======================
+= Secure JSP Taglibs =
+======================
+
+== 1.0.1 ==
+ * Changed the default package to com.samaxes.taglib.secure.
+ * Updated the distribution repositories to Sonatype Nexus.
