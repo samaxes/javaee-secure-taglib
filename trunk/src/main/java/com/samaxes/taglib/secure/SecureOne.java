@@ -26,8 +26,8 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 /**
  * Evalute the nested body content of this tag to test if the user has one of the specified roles.
  * 
- * @author : Samuel Santos
- * @version : $Revision: 27 $
+ * @author Samuel Santos
+ * @version $Revision: 27 $
  */
 public class SecureOne extends BodyTagSupport {
 

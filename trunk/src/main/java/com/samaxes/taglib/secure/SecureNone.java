@@ -22,8 +22,8 @@ import javax.servlet.jsp.JspException;
 /**
  * Evalute the nested body content of this tag to test if the user has none of the specified roles.
  * 
- * @author : Samuel Santos
- * @version : $Revision: 27 $
+ * @author Samuel Santos
+ * @version $Revision: 27 $
  */
 public class SecureNone extends SecureOne {
 
