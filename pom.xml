@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -13,7 +10,7 @@
 
     <groupId>com.samaxes.taglib</groupId>
     <artifactId>secure</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <name>Secure JSP Taglibs</name>
@@ -50,9 +47,9 @@
         <url>http://code.google.com/p/secure-taglib/issues/list</url>
     </issueManagement>
     <scm>
-        <connection>scm:svn:http://secure-taglib.googlecode.com/svn/trunk</connection>
-        <developerConnection>scm:svn:https://secure-taglib.googlecode.com/svn/trunk</developerConnection>
-        <url>http://secure-taglib.googlecode.com/svn/trunk</url>
+        <connection>scm:svn:http://secure-taglib.googlecode.com/svn/tags/secure-1.0.2</connection>
+        <developerConnection>scm:svn:https://secure-taglib.googlecode.com/svn/tags/secure-1.0.2</developerConnection>
+        <url>http://secure-taglib.googlecode.com/svn/tags/secure-1.0.2</url>
     </scm>
 
     <prerequisites>
