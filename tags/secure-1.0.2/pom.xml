@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
+    <groupId>com.samaxes.taglib</groupId>
+    <artifactId>secure</artifactId>
+    <version>1.0.2</version>
+    <packaging>jar</packaging>
+
+    <name>Secure JSP Taglibs</name>
+    <description>Secure JSP Taglibs aims to solve some security issues on the Java EE presentation layer.</description>
+    <url>http://code.google.com/p/secure-taglib/</url>
+    <inceptionYear>2007</inceptionYear>
+    <organization>
+        <name>samaxes</name>
+        <url>http://www.samaxes.com/</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>samaxes</id>
+            <name>Samuel Santos</name>
+            <url>http://www.samaxes.com/</url>
+            <roles>
+                <role>project owner</role>
+                <role>developer</role>
+            </roles>
+            <timezone>0</timezone>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/secure-taglib/issues/list</url>
+    </issueManagement>
+    <scm>
+        <connection>scm:svn:http://secure-taglib.googlecode.com/svn/tags/secure-1.0.2</connection>
+        <developerConnection>scm:svn:https://secure-taglib.googlecode.com/svn/tags/secure-1.0.2</developerConnection>
+        <url>http://secure-taglib.googlecode.com/svn/tags/secure-1.0.2</url>
+    </scm>
+
+    <prerequisites>
+        <maven>2.2.1</maven>
+    </prerequisites>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addClasspath>false</addClasspath>
+                        </manifest>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.8</version>
+                <configuration>
+                    <charset>${project.build.sourceEncoding}</charset>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <docencoding>${project.build.sourceEncoding}</docencoding>
+                    <source>1.5</source>
+                    <linksource>true</linksource>
+                    <quiet>true</quiet>
+                    <links>
+                        <link>http://download.oracle.com/javaee/5/api/</link>
+                    </links>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <inputEncoding>${project.build.sourceEncoding}</inputEncoding>
+                    <outputEncoding>${project.build.sourceEncoding}</outputEncoding>
+                    <javadocDir>target/site/apidocs</javadocDir>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.sourceforge.maven-taglib</groupId>
+                <artifactId>maven-taglib-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>

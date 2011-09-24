@@ -1,0 +1,11 @@
+======================
+= Secure JSP Taglibs =
+======================
+
+== 1.0.2 ==
+ * Removed legacy code (e.g. StringTokenizer).
+ * Fixed issue causing roles not being evaluated when spaces are used after the separating comma.
+
+== 1.0.1 ==
+ * Changed the default package to com.samaxes.taglib.secure.
+ * Updated the distribution repositories to Sonatype Nexus.
