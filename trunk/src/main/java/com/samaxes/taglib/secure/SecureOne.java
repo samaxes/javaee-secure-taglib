@@ -17,71 +17,38 @@
  */
 package com.samaxes.taglib.secure;
 
-import java.util.StringTokenizer;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.BodyTagSupport;
+import javax.servlet.jsp.tagext.BodyTag;
 
 /**
- * Evalute the nested body content of this tag to test if the user has one of the specified roles.
+ * Evalute the nested body content of this tag to test if the authenticated user has one of the specified roles.
  * 
  * @author Samuel Santos
  * @version $Revision: 27 $
  */
-public class SecureOne extends BodyTagSupport {
-
-    /**
-     * The delimiter character for roles.
-     */
-    public static final String ROLE_DELIMITER = ",";
-
-    /**
-     * The name of the security role to be checked for.
-     */
-    protected String roles;
+public class SecureOne extends SecureBase {
 
     private static final long serialVersionUID = 8058405142604915060L;
 
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles;
-    }
-
     /**
-     * Need to have at least one of the specified roles.
+     * Need to have a minimum of one role specified for the body to be evaluated.
      * 
-     * @exception JspException if a JSP exception occurs
+     * @return EVAL_BODY_BUFFERED if the authenticated user is included in the specified logical "role" or SKIP_BODY
+     *         otherwise
+     * @throws JspException if an error occurred while processing this tag
+     * @see BodyTag#doStartTag
      */
     public int doStartTag() throws JspException {
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
-        boolean hasRole = false;
+        String[] result = roles.split(ROLE_DELIMITER);
 
-        StringTokenizer st = new StringTokenizer(roles, ROLE_DELIMITER, false);
-        while (!hasRole && st.hasMoreTokens()) {
-            hasRole = request.isUserInRole(st.nextToken());
+        for (String string : result) {
+            if (request.isUserInRole(string.trim())) {
+                return EVAL_BODY_INCLUDE;
+            }
         }
 
-        return (hasRole) ? EVAL_BODY_INCLUDE : SKIP_BODY;
-    }
-
-    /**
-     * Evaluate the remainder of the current page normally.
-     * 
-     * @exception JspException if a JSP exception occurs
-     */
-    public int doEndTag() throws JspException {
-        return EVAL_PAGE;
-    }
-
-    /**
-     * Release all allocated resources.
-     */
-    public void release() {
-        super.release();
-        roles = null;
+        return SKIP_BODY;
     }
 }
