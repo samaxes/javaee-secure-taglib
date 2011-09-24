@@ -5,14 +5,12 @@
     version="2.1">
     <description>Secure JSP Taglibs aims to solve some security issues on the Java EE presentation layer.</description>
     <display-name>Secure JSP Taglibs</display-name>
-    <tlib-version>1.0.1</tlib-version>
+    <tlib-version>1.0.2</tlib-version>
     <short-name>secure</short-name>
     <uri>http://www.samaxes.com/taglib/secure</uri>
 
     <tag>
-        <description><![CDATA[
-            <p>Need to have at least one of the specified roles.</p>
-        ]]></description>
+        <description>Need to have at least one of the specified roles.</description>
         <name>one</name>
         <tag-class>com.samaxes.taglib.secure.SecureOne</tag-class>
         <body-content>JSP</body-content>
@@ -27,9 +25,7 @@
     </tag>
 
     <tag>
-        <description><![CDATA[
-            <p>Need to have all the specified roles.</p>
-        ]]></description>
+        <description>Need to have all the specified roles.</description>
         <name>all</name>
         <tag-class>com.samaxes.taglib.secure.SecureAll</tag-class>
         <body-content>JSP</body-content>
@@ -44,9 +40,7 @@
     </tag>
 
     <tag>
-        <description><![CDATA[
-            <p>Need to have none of the specified roles.</p>
-        ]]></description>
+        <description>Need to have none of the specified roles.</description>
         <name>none</name>
         <tag-class>com.samaxes.taglib.secure.SecureNone</tag-class>
         <body-content>JSP</body-content>

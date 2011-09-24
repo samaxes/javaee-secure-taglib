@@ -17,24 +17,38 @@
  */
 package com.samaxes.taglib.secure;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.BodyTag;
 
 /**
- * Evalute the nested body content of this tag to test if the user has none of the specified roles.
+ * Evalute the nested body content of this tag to test if the authenticated user has none of the specified roles.
  * 
  * @author Samuel Santos
  * @version $Revision: 27 $
  */
-public class SecureNone extends SecureOne {
+public class SecureNone extends SecureBase {
 
     private static final long serialVersionUID = 6889348390902605306L;
 
     /**
-     * Need to have none of the specified roles.
+     * Cannot have any of the specified roles.
      * 
-     * @exception JspException if a JSP exception occurs
+     * @return SKIP_BODY if the authenticated user is included in the specified logical "role" or EVAL_BODY_INCLUDE
+     *         otherwise
+     * @throws JspException if an error occurred while processing this tag
+     * @see BodyTag#doStartTag
      */
     public int doStartTag() throws JspException {
-        return (super.doStartTag() == EVAL_BODY_INCLUDE) ? SKIP_BODY : EVAL_BODY_INCLUDE;
+        HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
+        String[] result = roles.split(ROLE_DELIMITER);
+
+        for (String string : result) {
+            if (request.isUserInRole(string.trim())) {
+                return SKIP_BODY;
+            }
+        }
+
+        return EVAL_BODY_INCLUDE;
     }
 }

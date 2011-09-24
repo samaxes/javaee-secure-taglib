@@ -17,35 +17,38 @@
  */
 package com.samaxes.taglib.secure;
 
-import java.util.StringTokenizer;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.BodyTag;
 
 /**
- * Evalute the nested body content of this tag to test if the user has all of the specified roles.
+ * Evalute the nested body content of this tag to test if the user authenticated has all the specified roles.
  * 
  * @author Samuel Santos
  * @version $Revision: 27 $
  */
-public class SecureAll extends SecureOne {
+public class SecureAll extends SecureBase {
 
     private static final long serialVersionUID = -4945659803003639112L;
 
     /**
-     * Need to have all the specified roles.
+     * Need to have all the roles specified for the body to be evaluated.
      * 
-     * @exception JspException if a JSP exception occurs
+     * @return EVAL_BODY_BUFFERED if the authenticated user is included in all the specified logical "role" or SKIP_BODY
+     *         otherwise
+     * @throws JspException if an error occurred while processing this tag
+     * @see BodyTag#doStartTag
      */
     public int doStartTag() throws JspException {
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
-        boolean hasRole = true;
+        String[] result = roles.split(ROLE_DELIMITER);
 
-        StringTokenizer st = new StringTokenizer(roles, ROLE_DELIMITER, false);
-        while (hasRole && st.hasMoreTokens()) {
-            hasRole = request.isUserInRole(st.nextToken());
+        for (String string : result) {
+            if (!request.isUserInRole(string.trim())) {
+                return SKIP_BODY;
+            }
         }
 
-        return (hasRole) ? EVAL_BODY_INCLUDE : SKIP_BODY;
+        return EVAL_BODY_INCLUDE;
     }
 }
