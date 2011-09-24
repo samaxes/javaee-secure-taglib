@@ -10,7 +10,7 @@
 
     <groupId>com.samaxes.taglib</groupId>
     <artifactId>secure</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Secure JSP Taglibs</name>
@@ -47,9 +47,9 @@
         <url>http://code.google.com/p/secure-taglib/issues/list</url>
     </issueManagement>
     <scm>
-        <connection>scm:svn:http://secure-taglib.googlecode.com/svn/tags/secure-1.0.2</connection>
-        <developerConnection>scm:svn:https://secure-taglib.googlecode.com/svn/tags/secure-1.0.2</developerConnection>
-        <url>http://secure-taglib.googlecode.com/svn/tags/secure-1.0.2</url>
+        <connection>scm:svn:http://secure-taglib.googlecode.com/svn/trunk</connection>
+        <developerConnection>scm:svn:https://secure-taglib.googlecode.com/svn/trunk</developerConnection>
+        <url>http://secure-taglib.googlecode.com/svn/trunk</url>
     </scm>
 
     <prerequisites>
